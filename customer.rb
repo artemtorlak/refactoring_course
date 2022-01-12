@@ -12,7 +12,7 @@ class Customer
     result = "Rental information for customer: #{name} \n"
 
     rentals.each do |rental|
-      this_amount = amount_for(rental)
+      this_amount = rental.charge
 
       # Add additional points for frequent customer
       frequent_renter_points += 1
@@ -32,11 +32,5 @@ class Customer
     result += "You got #{frequent_renter_points} points for your activity. \n"
 
     return result
-  end
-
-  private 
-
-  def amount_for(rental)
-    rental.charge
   end
 end
