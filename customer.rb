@@ -12,13 +12,7 @@ class Customer
     result = "Rental information for customer: #{name} \n"
 
     rentals.each do |rental|
-      # Add additional points for frequent customer
-      frequent_renter_points += 1
-
-      # points for rental new file for 2 days
-      if (rental.movie.price_code == Movie::NEW_RELEASE && rental.days_rented > 1)
-        frequent_renter_points += 1
-      end
+      frequent_renter_points += rental.frequent_renter_points
 
       # Add results for rental
       result += "#{rental.movie.title} : #{rental.charge} \n"
