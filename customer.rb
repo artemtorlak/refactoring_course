@@ -12,8 +12,6 @@ class Customer
     result = "Rental information for customer: #{name} \n"
 
     rentals.each do |rental|
-      this_amount = rental.charge
-
       # Add additional points for frequent customer
       frequent_renter_points += 1
 
@@ -23,8 +21,8 @@ class Customer
       end
 
       # Add results for rental
-      result += "#{rental.movie.title} : #{this_amount} \n"
-      total_amount += this_amount
+      result += "#{rental.movie.title} : #{rental.charge} \n"
+      total_amount += rental.charge
     end
 
     # Additional info
