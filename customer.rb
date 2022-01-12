@@ -7,7 +7,6 @@ class Customer
   end
 
   def statement
-    total_amount = 0
     frequent_renter_points = 0
     result = "Rental information for customer: #{name} \n"
 
@@ -16,13 +15,24 @@ class Customer
 
       # Add results for rental
       result += "#{rental.movie.title} : #{rental.charge} \n"
-      total_amount += rental.charge
     end
 
     # Additional info
-    result += "Your dept is: #{total_amount}. \n"
+    result += "Your dept is: #{total_charge}. \n"
     result += "You got #{frequent_renter_points} points for your activity. \n"
 
     return result
+  end
+
+  private
+
+  def total_charge
+    result = 0
+
+    rentals.each do |rental|
+      result += rental.charge
+    end
+
+    result
   end
 end
