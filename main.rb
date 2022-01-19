@@ -1,10 +1,17 @@
-require_relative './movie.rb'
-require_relative './rental.rb'
-require_relative './customer.rb'
+require_relative 'movie'
+require_relative 'rental'
+require_relative 'customer'
+require_relative 'new_release_price'
+require_relative 'childrens_price'
+require_relative 'regular_price'
 
-movie_1 = Movie.new('Regular film', 0)
-movie_2 = Movie.new('New Release film', 1)
-movie_3 = Movie.new('Childrens film', 2)
+new_release_price = NewReleasePrice.new
+childrens_price = ChildrensPrice.new
+regular_price = RegularPrice.new
+
+movie_1 = Movie.new('Regular film', regular_price)
+movie_2 = Movie.new('New Release film', new_release_price)
+movie_3 = Movie.new('Childrens film', childrens_price)
 
 rentals = []
 rentals << Rental.new(movie_1, 1)
